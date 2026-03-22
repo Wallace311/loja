@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="https://thymeLeaf.org"
+      xmlns:layout="https://www.ultraq.net.nz/thymeLeaf/Layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+</head>
+<body>
+    <h1>Lista</h1>
+
+    <table>
+        <thead>
+            <tr>ID </br></tr>
+            <tr>Nome </br></tr>
+            <tr>Sigla </br></tr>
+            <tr>Ação </br></tr>
+        </thead>
+        <tbody th:each="estado: ${listaEstados}">
+            <tr>
+                <td th:text = "${estado.id}"></td>
+                <td th:text = "${estado.nome}"></td>
+                <td th:text = "${estado.sigla}"></td>
+                <td colspan="2">
+                    <a th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar</a>
+                    <a th:href="@{/excluirEstado/{id}(id=${estado.id})}">Excluir</a>
+                </td>
+
+
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
